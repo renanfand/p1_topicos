@@ -1,0 +1,32 @@
+<%= form_with(model: prato, local: true) do |form| %>
+  <% if prato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prato.errors.count, "error") %> prohibited this prato from being saved:</h2>
+
+      <ul>
+      <% prato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :float %>
+    <%= form.text_field :float %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tempo %>
+    <%= form.time_select :tempo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
