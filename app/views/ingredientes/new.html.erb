@@ -1,5 +1,13 @@
-<h1>New Ingrediente</h1>
-
-<%= render 'form', ingrediente: @ingrediente %>
-
-<%= link_to 'Back', ingredientes_path %>
+<div class="">
+	<div class="container">
+		<div class="page-header">
+			<h1 class="title">Novo Ingrediente</h1>
+		</div>
+		<div class="texto-exibir">
+			<%= render 'form', ingrediente: @ingrediente %>
+		</div>
+		<div class="btn-container col-xs-12">
+			<%= link_to 'Voltar', ingredientes_path, :class => "btn btn-default" %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+<div class="">
+	<div class="container">
+		<div class="page-header">
+			<h1 class="title">Editar Categoria</h1>
+		</div>
+		
+		<div class="texto-exibir">
+
+			<%= render 'form', category: @category %>
+		</div>
+
+		<div class="btn-container col-xs-12">
+			<%= link_to 'Visualizar', @category, :class => "btn btn-primary" %>
+			<%= link_to 'Voltar', categories_path, :class => "btn btn-default" %>
+		</div>
+	</div>
+</div>

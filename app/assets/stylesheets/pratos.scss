@@ -1,3 +1,78 @@
 // Place all the styles related to the Pratos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container-prato {
+	margin: 10px 0;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #8ac460;
+
+	.texto-exibir {
+		.tile-plate {
+			font-family: 'Agency FB', arial;
+		    font-weight: bold;
+		    font-size: 45px;
+		    color: #8ac460;
+		    margin: 0;
+		}
+		// background: #F1F1F1;
+		border-radius: 5px;
+		padding: 20px;
+		padding-bottom: 0;
+		p {
+			line-height: 30px;
+			color: #777;
+			font-family: 'Open Sans Light', arial;
+			font-weight: normal;
+		}
+		.container-bnt-crud {
+		    text-align: center;
+		    margin-top: 20px;
+		    padding: 0;
+		    margin-left: -20px;
+    		margin-right: -20px;
+		    a {
+		    	&.btn-primary,
+		    	&.btn-danger,
+		    	&.btn-success{
+			    	border: none;
+			    	background-color: #fff;
+					font-weight: bold;
+		    	}
+		    	&.btn-success{
+			    	border-radius: 0 0 0 5px;
+			    	color: #5cb85c;
+			    	border-top: 2px solid #5cb85c !important;
+			    	&:hover{
+			    		color: darken(#5cb85c, 13%);
+				    }
+			    }
+			    &.btn-primary{
+			    	border-radius: 0;
+			    	color: #337ab7;
+			    	border-top: 2px solid #337ab7 !important;
+			    	&:hover{
+			    		color: darken(#337ab7, 13%);
+				    }
+			    }
+			    &.btn-danger {
+					border-radius: 0 0 5px 0px;
+					color: #d9534f;
+					border-top: 2px solid #d9534f !important;
+			    	&:hover{
+			    		color: darken(#d9534f, 13%);
+				    }
+				}
+		    }
+		}
+	}
+}
+
+.custom-checkbox {
+    display: inline-block;
+    padding-right: 20px;
+    font-size: 15px;
+    line-height: 40px;
+    font-weight: normal;
+}

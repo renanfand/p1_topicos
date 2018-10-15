@@ -1,32 +1,46 @@
 <%= form_with(model: restaurante, local: true) do |form| %>
-  <% if restaurante.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(restaurante.errors.count, "error") %> prohibited this restaurante from being saved:</h2>
+<% if restaurante.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(restaurante.errors.count, "error") %> prohibited this restaurante from being saved:</h2>
 
-      <ul>
-      <% restaurante.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
-  </div>
-
-  <div class="field">
-    <%= form.label :telefone %>
-    <%= form.text_field :telefone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :endereco %>
-    <%= form.text_field :endereco %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <ul>
+    <% restaurante.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
+<div class="row">
+  <div class="container">
+    <div class="col-xs-6">   
+      <div class="field">
+        <%= form.label :nome %>
+        <%= form.text_field :nome, :class => "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :endereco %>
+        <%= form.text_field :endereco, :class => "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :telefone %>
+        <%= form.number_field :telefone, :class => "form-control" %>
+      </div>
+
+      <div class="field"> 
+      <%= form.label :pratos %>    
+        <% for prato in Prato.all %>
+          <div class="custom-checkbox">
+            <%= check_box_tag "restaurante[prato_ids][]", prato.id, @restaurante.pratos.include?(prato) %>
+            <%= prato.nome %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit :class => "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+  <% end %>

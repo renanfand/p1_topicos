@@ -1,31 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div class="">
+  <div class="container">
 
-<h1>Pratos</h1>
+    <p id="notice"><%= notice %></p>
+    <div class="page-header">
+      <h1 class="title">Pratos</h1>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Float</th>
-      <th>Tempo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="col-xs-12">
+      <% @pratos.each do |prato| %>
+      <div class="container-prato col-xs-12">
+        <div class="container-img-prato col-xs-6">
+          <div class="img-block">
+            <%= (image_tag "prato.jpg" , :class => "img-prato hidden") %>
+          </div>
+        </div>
+        <div class="texto-exibir texto-exibir-pratos col-xs-6">
+          <p>
+            <h2 class="tile-plate"><%= prato.nome %></h2>
+          </p>
+          <p>
+            <strong>Ingredientes:</strong>
+            <%= prato.ingredientes.map(&:nome).join(', ') %> 
+          </p>
+          <p>
+            <strong>Tempo de preparo:</strong>
+            <%= prato.tempo %>
+          </p>
+          <p>
+            <strong>Tipo do prato:</strong>
+            <%= prato.category.nome %>
+          </p>
+          <p>
+            <strong>Valor:</strong>
+            R$<%= prato.preco %>
+          </p>
 
-  <tbody>
-    <% @pratos.each do |prato| %>
-      <tr>
-        <td><%= prato.nome %></td>
-        <td><%= prato.float %></td>
-        <td><%= prato.tempo %></td>
-        <td><%= link_to 'Show', prato %></td>
-        <td><%= link_to 'Edit', edit_prato_path(prato) %></td>
-        <td><%= link_to 'Destroy', prato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Prato', new_prato_path %>
+          <div class="row container-bnt-crud">
+            <%= link_to 'Visualizar', prato, :class => "btn btn-success col-xs-4" %>
+            <%= link_to 'Editar', edit_prato_path(prato), :class => "btn btn-primary col-xs-4" %>
+            <%= link_to 'Deletar', prato, method: :delete, data: { confirm: 'Deseja realmente excluir?' }, :class => "btn btn-danger col-xs-4" %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <br>
+      <div class="btn-container col-xs-12">
+        <%= link_to 'Novo Prato', new_prato_path, :class => "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+</div>

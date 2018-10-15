@@ -28,7 +28,7 @@ class PratosController < ApplicationController
 
     respond_to do |format|
       if @prato.save
-        format.html { redirect_to @prato, notice: 'Prato was successfully created.' }
+        format.html { redirect_to @prato, notice: 'Prato criado com sucesso!' }
         format.json { render :show, status: :created, location: @prato }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PratosController < ApplicationController
   def update
     respond_to do |format|
       if @prato.update(prato_params)
-        format.html { redirect_to @prato, notice: 'Prato was successfully updated.' }
+        format.html { redirect_to @prato, notice: 'Prato atualizado com sucesso!' }
         format.json { render :show, status: :ok, location: @prato }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class PratosController < ApplicationController
   def destroy
     @prato.destroy
     respond_to do |format|
-      format.html { redirect_to pratos_url, notice: 'Prato was successfully destroyed.' }
+      format.html { redirect_to pratos_url, notice: 'Prato excluido com sucesso!' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class PratosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prato_params
-      params.require(:prato).permit(:nome, :float, :tempo)
+      params.require(:prato).permit(:nome, :preco, :tempo, :category_id, {ingrediente_ids: []})
     end
 end

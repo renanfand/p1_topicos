@@ -1,6 +1,15 @@
-<h1>Editing Restaurante</h1>
+<div class="">
+	<div class="container">
+		<div class="page-header">
+			<h1 class="title">Editar Restaurante</h1>
+		</div>
 
-<%= render 'form', restaurante: @restaurante %>
-
-<%= link_to 'Show', @restaurante %> |
-<%= link_to 'Back', restaurantes_path %>
+		<div class="texto-exibir">
+			<%= render 'form', restaurante: @restaurante %>
+		</div>
+		<div class="btn-container col-xs-12">
+			<%= link_to 'Visualizar', @restaurante, :class => "btn btn-primary" %>
+			<%= link_to 'Voltar', restaurantes_path, :class => "btn btn-default" %>
+		</div>
+	</div>
+</div>

@@ -1,32 +1,53 @@
 <%= form_with(model: prato, local: true) do |form| %>
-  <% if prato.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(prato.errors.count, "error") %> prohibited this prato from being saved:</h2>
+<% if prato.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(prato.errors.count, "error") %> prohibited this prato from being saved:</h2>
 
-      <ul>
-      <% prato.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <ul>
+    <% prato.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="row">
+  <div class="container">
+    <div class="col-xs-6">  
+      <div class="field">
+        <%= form.label :nome %>
+        <%= form.text_field :nome, :class => "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :preco %>
+        <%= form.text_field :preco, :class => "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :tempo %>
+        <%= form.time_select :tempo, :class => "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :categoria %>
+        <%= form.select :category_id, Category.all.collect {|category| [category.nome, category.id]},{},{:class => 'form-control'} %>
+      </div>
+
+      <div class="field"> 
+      <%= form.label :ingredientes %>    
+        <% for ingrediente in Ingrediente.all %>
+          <div class="custom-checkbox">
+            <%= check_box_tag "prato[ingrediente_ids][]", ingrediente.id, @prato.ingredientes.include?(ingrediente) %>
+            <%= ingrediente.nome %>
+          </div>
+        <% end %>
+      </div>
+      
+      <div class="actions">
+        <%= form.submit :class => "btn btn-success" %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
   </div>
-
-  <div class="field">
-    <%= form.label :float %>
-    <%= form.text_field :float %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tempo %>
-    <%= form.time_select :tempo %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
 <% end %>

@@ -1,19 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="">
+	<div class="container">
+		<p id="notice" class=""><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @restaurante.nome %>
-</p>
-
-<p>
-  <strong>Telefone:</strong>
-  <%= @restaurante.telefone %>
-</p>
-
-<p>
-  <strong>Endereco:</strong>
-  <%= @restaurante.endereco %>
-</p>
-
-<%= link_to 'Edit', edit_restaurante_path(@restaurante) %> |
-<%= link_to 'Back', restaurantes_path %>
+		<div class="page-header">
+			<h1 class="title">Restaurante</h1>
+		</div>
+		<div class="texto-exibir">
+			<p>
+				<strong>Nome:</strong>
+				<%= @restaurante.nome %>
+			</p>
+			<br>
+			<p>
+				<strong>Endereco:</strong>
+				<%= @restaurante.endereco %>
+			</p>
+			<br>
+			<p>
+				<strong>Telefone:</strong>
+				<%= @restaurante.telefone %>
+			</p>
+			<br>
+			<p>
+				<strong>Pratos:</strong>
+				<%= @restaurante.pratos.map(&:nome).join(', ') %>
+			</p>
+			<br>
+			<% @restaurante.pratos.order(:nome).each do |d| %>
+				<p>
+					<strong>Categoria:</strong>
+					<%= d.category.nome %>
+				</p>
+			<% end %>
+		</div>
+		<div class="btn-container">
+			<%= link_to 'Editar', edit_restaurante_path(@restaurante), :class => "btn btn-primary" %>
+			<%= link_to 'Voltar', restaurantes_path, :class => "btn btn-default" %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,141 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ .title {
+ 	text-transform: uppercase;
+ 	color: #8ac460;
+ 	font-family: 'Agency FB', arial;
+ }
+
+ #notice {
+ 	margin-top: 30px;
+ }
+
+ul.nav.navbar-nav {
+    margin-top: 10px;
+}
+
+.navbar-collapse{
+ 	background: #fff;
+    padding: 10px 0;
+    padding-bottom: 10px !important;
+}
+
+.navbar-nav {
+	li {
+		a {
+			font-family: 'Agency FB', arial;
+			font-size: 22px;
+		    color: #650f02;
+		    font-weight: bold;
+		    text-transform: uppercase;
+		}
+	}
+}
+
+form.navbar-form.navbar-right {
+	margin-top: 20px;
+
+	.btn-search {
+		font-family: 'Agency FB', arial;
+	    position: relative;
+	    left: -10px;
+	    font-size: 20px;
+	    border: none !important;
+	    text-transform: uppercase;
+	    background: #8ac460 !important;
+	    padding: 3px 20px !important;
+	}
+
+	input.form-control {
+	    border: none;
+	    background: #eee;
+	    width: 300px !important;
+	}
+
+	input::placeholder {
+		font-family: 'Agency FB', arial;
+		font-size: 20px;
+	}
+}
+
+ .page-header {
+ 	border-color: #8ac460;
+ }
+ .container-logo {
+ 	display: inline-block;
+
+	.img-prato{
+		max-width: 90px;
+	}
+ }
+ .container-img-prato {
+ 	position: relative;
+ 	text-align: center;
+ 	.img-block {
+ 		background-image: url(image-path("prato.jpg"));
+		display: inline-block;
+		background-repeat: no-repeat;
+		width:100%;
+		height: 400px;
+    	background-size: contain;
+	}
+}
+
+.texto-exibir {
+
+	p, label {
+		font-size: 16px;
+		width: 100%;
+	}
+}
+
+.btn-container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.container-btn-new {
+	margin-bottom: 40px;
+}
+
+
+a {
+	&.btn-default{
+		color: #777 !important;
+	}
+
+	&.btn{
+		color: #fff;
+		font-family: 'Agency FB', arial;
+		font-weight: normal;
+		padding: 3px 15px !important;
+		font-size: 20px;
+	}
+}
+
+.table {
+
+	td {
+		border: none !important;
+		font-family: 'Open Sans Light', arial;
+		font-size: 16px;
+		color: #777;
+	}
+}

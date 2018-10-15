@@ -1,31 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
 
-<h1>Restaurantes</h1>
+    <div class="page-header">
+      <h1 class="title">Restaurente</h1>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Telefone</th>
-      <th>Endereco</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="col-xs-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Endereco</th>
+            <th>Telefone</th>
+            <th>Pratos</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @restaurantes.each do |restaurante| %>
-      <tr>
-        <td><%= restaurante.nome %></td>
-        <td><%= restaurante.telefone %></td>
-        <td><%= restaurante.endereco %></td>
-        <td><%= link_to 'Show', restaurante %></td>
-        <td><%= link_to 'Edit', edit_restaurante_path(restaurante) %></td>
-        <td><%= link_to 'Destroy', restaurante, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @restaurantes.each do |restaurante| %>
+          <tr>
+            <td><%= restaurante.nome %></td>
+            <td><%= restaurante.endereco %></td>
+            <td><%= restaurante.telefone %></td>
+            <td><%= restaurante.pratos.map(&:nome).join(', ') %></td>
 
-<br>
-
-<%= link_to 'New Restaurante', new_restaurante_path %>
+            <td><%= link_to 'Visualizar', restaurante, :class => "btn btn-info" %></td>
+            <td><%= link_to 'Editar', edit_restaurante_path(restaurante), :class => "btn btn-primary" %></td>
+            <td><%= link_to 'Deletar', restaurante, method: :delete, data: { confirm: 'Deseja realmente excluir?' }, :class => "btn btn-danger" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <div class="col-xs-12">
+      <%= link_to 'Novo', new_restaurante_path, :class => "btn btn-success" %>
+    </div>
+  </div>
+</div>

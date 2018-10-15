@@ -7,9 +7,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="http://allfont.net/allfont.css?fonts=open-sans-light" rel="stylesheet" type="text/css" />
+    <link href="http://allfont.net/allfont.css?fonts=agency-fb" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
+    <%= render '/layouts/menu' %>
     <%= yield %>
+
+
   </body>
 </html>

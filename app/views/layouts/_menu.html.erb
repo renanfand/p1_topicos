@@ -1,0 +1,36 @@
+<nav class="navbar">
+	<div class="container-fluid">
+		<div class="collapse navbar-collapse" style="text-align: center;" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li>
+					<a class="" href="..">Home</a>
+				</li>
+				<li>
+					<a href="../restaurantes">Restaurante</a>
+				</li>
+				<li>
+					<a href="../pratos">Prato</a>
+				</li>
+				<li>
+					<a href="../ingredientes">Ingrediente</a>
+				</li>
+				<li>
+					<a href="../categories">Categoria</a>
+				</li>
+			</ul>
+
+			<li style="display: inline-block;">
+				<a class="container-logo" href="..">
+					<%= (image_tag "logo.jpg" , :class => "img-prato") %>
+				</a>
+			</li>
+
+			<form class="navbar-form navbar-right">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Seu prato predileto...">
+					<button type="submit" class="btn btn-success btn-search">Buscar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</nav>
